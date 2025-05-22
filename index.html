@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Futures Internship Program</title>
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+            margin-bottom: 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            background: #2c3e50;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        nav button {
+            background: transparent;
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: background 0.3s;
+            font-size: 0.9em;
+        }
+        
+        nav button:hover, nav button.active {
+            background: #3498db;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        h2 {
+            color: #2980b9;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        
+        .page {
+            display: none;
+            background: white;
+            border-radius: 0 0 10px 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            flex-grow: 1;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        .quote {
+            font-style: italic;
+            color: #7f8c8d;
+            font-size: 1.2em;
+            border-left: 4px solid #3498db;
+            padding-left: 20px;
+            margin: 20px 0;
+        }
+        
+        .highlight {
+            background-color: #f1c40f;
+            color: #2c3e50;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        li {
+            padding: 10px 0;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        li:before {
+            content: "✓ ";
+            color: #2ecc71;
+            font-weight: bold;
+        }
+        
+        .columns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .column {
+            flex: 1;
+            min-width: 300px;
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .benefits-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .benefit-card {
+            flex: 1;
+            min-width: 200px;
+            background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .emoji {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        
+        .cta {
+            background: linear-gradient(135deg, #FF512F 0%, #F09819 100%);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+        
+        .cta h2 {
+            color: white;
+            border-bottom: none;
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: auto;
+        }
+        
+        footer a {
+            color: #f1c40f;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Progress indicator for presentation */
+        .progress-container {
+            width: 100%;
+            height: 5px;
+            background: #ecf0f1;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: #3498db;
+            width: 0;
+        }
+        
+        /* Navigation controls */
+        .nav-controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        
+        .nav-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .nav-btn:hover {
+            background: #2980b9;
+        }
+        
+        .nav-btn:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+        }
+        
+        @media (max-width: 768px) {
+            .column {
+                flex: 100%;
+            }
+            
+            nav {
+                overflow-x: auto;
+                justify-content: flex-start;
+            }
+            
+            nav button {
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Digital Futures Internship</h1>
+            <p>Build Your Career Through Real-World Experience</p>
+        </header>
+        
+        <nav id="navigation">
+            <button class="nav-tab active" data-page="intro">Introduction</button>
+            <button class="nav-tab" data-page="skills">Skills & Training</button>
+            <button class="nav-tab" data-page="industries">Industry Partners</button>
+            <button class="nav-tab" data-page="entrepreneurship">Entrepreneurship</button>
+            <button class="nav-tab" data-page="trends">Future Trends</button>
+            <button class="nav-tab" data-page="contact">Apply Now</button>
+        </nav>
+        
+        <!-- Page 1: Introduction -->
+        <div id="intro" class="page active">
+            <h2>Why Digital Marketing Internships? Why Now?</h2>
+            <div class="quote">
+                "The best way to predict the future is to create it." - Abraham Lincoln
+            </div>
+            
+            <p>The Bay Area's tech-driven economy has created an <span class="highlight">unprecedented demand</span> for digital marketing professionals:</p>
+            
+            <ul>
+                <li><strong>500+ job openings</strong> right now in the Bay Area</li>
+                <li><strong>10% growth</strong> projected over the next decade (faster than most fields)</li>
+                <li><strong>Competitive salaries</strong> – Bay Area digital marketers earn 5-50% more than the national average</li>
+                <li>Entry-level positions start at <strong>$55-60K</strong>, with experienced marketers earning <strong>$80-90K+</strong></li>
+            </ul>
+            
+            <div class="cta">
+                <h2>Digital Futures Internship Program</h2>
+                <p>Professional training through real-world placements with local partner organizations</p>
+                <p><span class="highlight">Fully Funded</span> during initial internship period</p>
+            </div>
+
+            <h3>How It Works:</h3>
+            <div class="columns">
+                <div class="column">
+                    <h4>Professional Training</h4>
+                    <ul>
+                        <li>Instructor-led training sessions</li>
+                        <li>Dedicated e-learning platform</li>
+                        <li>Specialized marketing tracks</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h4>Real Experience</h4>
+                    <ul>
+                        <li>Direct placement with partner organizations</li>
+                        <li>Hands-on marketing projects</li>
+                        <li>Professional mentorship</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="nav-controls">
+                <button class="nav-btn prev-btn" disabled>Previous</button>
+                <button class="nav-btn next-btn">Next</button>
+            </div>
+        </div>
+        
+        <!-- Page 2: Skills & Learning -->
+        <div id="skills" class="page">
+            <h2>Training & Skill Development</h2>
+            <div class="quote">
+                "Your skills determine your future – invest in them wisely." - Brian Tracy
+            </div>
+            
+            <h3>Comprehensive Training Program:</h3>
+            <div class="columns">
+                <div class="column">
+                    <h4>Core Digital Marketing Skills</h4>
+                    <ul>
+                        <li>Social Media Marketing & Management</li>
+                        <li>Email Marketing Campaigns</li>
+                        <li>Search Engine Optimization (SEO)</li>
+                        <li>Pay-Per-Click Advertising (PPC)</li>
+                        <li>Content Creation & Strategy</li>
+                        <li>Analytics & Performance Tracking</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h4>Specialized Tracks Available</h4>
+                    <ul>
+                        <li>Social Media Specialization</li>
+                        <li>Email Marketing Focus</li>
+                        <li>Mobile Marketing Strategy</li>
+                        <li>Content Marketing</li>
+                        <li>E-commerce Marketing</li>
+                        <li>Analytics & Data Science</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3>Training Delivery Method:</h3>
+            <ul>
+                <li><strong>Live Instructor-Led Sessions:</strong> Interactive training with industry professionals</li>
+                <li><strong>E-Learning Platform:</strong> Self-paced modules for ongoing skill development</li>
+                <li><strong>Hands-On Projects:</strong> Real work with partner organizations</li>
+                <li><strong>Mentorship:</strong> Guidance from experienced marketing professionals</li>
+            </ul>
+            
+            <h3>What This Program Creates:</h3>
+            <div class="benefits-list">
+                <div class="benefit-card">
+                    <div class="emoji">💼</div>
+                    <p>Professional work experience</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="emoji">🎯</div>
+                    <p>Specialized marketing expertise</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="emoji">🤝</div>
+                    <p>Industry connections</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="emoji">📈</div>
+                    <p>Measurable results portfolio</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="emoji">🚀</div>
+                    <p>Career advancement opportunities</p>
+                </div>
+            </div>
+            
+            <div class="nav-controls">
+                <button class="nav-btn prev-btn">Previous</button>
+                <button class="nav-btn next-btn">Next</button>
+            </div>
+        </div>
+        
+        <!-- Page 3: Industry Partners -->
+        <div id="industries" class="page">
+            <h2>Partner Organizations & Industries</h2>
+            <div class="quote">
+                "Opportunity is missed by most people because it is dressed in overalls and looks like work." - Thomas Edison
+            </div>
+            
+            <h3>Top Bay Area Industries Seeking Digital Marketing Interns:</h3>
+            <div class="columns">
+                <div class="column">
+                    <h4>Technology & Software</h4>
+                    <p>As the heart of the tech industry, Bay Area software and tech companies constantly need digital marketing support for product launches, user acquisition, and brand building.</p>
+                </div>
+                <div class="column">
+                    <h4>Retail & E-Commerce</h4>
+                    <p>Local retailers and e-commerce startups need help with online presence, social media management, and digital advertising campaigns.</p>
+                </div>
+            </div>
+            
+            <div class="columns">
+                <div class="column">
+                    <h4>Healthcare & Biotech</h4>
+                    <p>Hospitals, clinics, and health tech firms require digital marketing support for patient education, service promotion, and community outreach.</p>
+                </div>
+                <div class="column">
+                    <h4>Non-Profit Organizations</h4>
+                    <p>Local nonprofits need digital marketing assistance for fundraising campaigns, volunteer recruitment, and community engagement.</p>
+                </div>
+            </div>
+
+            <h3>Partnership Benefits:</h3>
+            <div class="columns">
+                <div class="column">
+                    <h4>For Partner Organizations</h4>
+                    <ul>
+                        <li>Access to trained, motivated interns</li>
+                        <li>Fresh perspectives on digital strategies</li>
+                        <li>Cost-effective marketing support</li>
+                        <li>Opportunity to recruit future talent</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h4>For Interns</h4>
+                    <ul>
+                        <li>Real-world experience with established companies</li>
+                        <li>Professional references and networking</li>
+                        <li>Potential for continued employment</li>
+                        <li>Portfolio development with actual results</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="nav-controls">
+                <button class="nav-btn prev-btn">Previous</button>
+                <button class="nav-btn next-btn">Next</button>
+            </div>
+        </div>
+        
+        <!-- Page 4: Entrepreneurship -->
+        <div id="entrepreneurship" class="page">
+            <h2>Entrepreneurship Opportunities</h2>
+            <div class="quote">
+                "Don't let the fear of losing be greater than the excitement of winning." - Robert Kiyosaki
+            </div>
+            
+            <p>The Digital Futures Internship isn't just about getting a job – it's about learning skills that can launch your own business ventures.</p>
+            
+            <h3>Skills That Translate to Entrepreneurship:</h3>
+            <ul>
+                <li><strong>Client Management:</strong> Learn to work directly with organizations and understand their needs</li>
+                <li><strong>Project Leadership:</strong> Manage campaigns from strategy to execution</li>
+                <li><strong>Results Measurement:</strong> Track and report on marketing performance</li>
+                <li><strong>Professional Communication:</strong> Build relationships with stakeholders</li>
+                <li><strong>Industry Knowledge:</strong> Understand how different businesses operate</li>
+            </ul>
+            
+            <h3>Post-Internship Business Opportunities:</h3>
+            <div class="columns">
+                <div class="column">
+                    <h4>Freelance Digital Marketing</h4>
+                    <p>Use your internship experience and portfolio to attract your own clients.</p>
+                </div>
+                <div class="column">
+                    <h4>Marketing Consultancy</h4>
+                    <p>Advise small businesses on their digital marketing strategies.</p>
+                </div>
+                <div class="column">
+                    <h4>Content Creation Business</h4>
+                    <p>Leverage your content creation skills to serve multiple clients.</p>
+                </div>
+            </div>
+            
+            <h3>Success Stories:</h3>
+            <ul>
+                <li>Many program alumni have started their own marketing agencies</li>
+                <li>Former interns often return as freelance contractors for their host organizations</li>
+                <li>Several participants have launched successful e-commerce businesses using their learned skills</li>
+                <li>Program network provides ongoing business development opportunities</li>
+            </ul>
+            
+            <div class="quote">
+                "The best investment you can make is in yourself." - Warren Buffett
+            </div>
+            
+            <div class="nav-controls">
+                <button class="nav-btn prev-btn">Previous</button>
+                <button class="nav-btn next-btn">Next</button>
+            </div>
+        </div>
+        
+        <!-- Page 5: Future Trends -->
+        <div id="trends" class="page">
+            <h2>Future Trends You'll Master</h2>
+            <div class="quote">
+                "The best time to plant a tree was 20 years ago. The second best time is now." - Chinese Proverb
+            </div>
+            
+            <h3>Three Major Growth Areas You'll Experience:</h3>
+            
+            <div class="columns">
+                <div class="column">
+                    <h4>1. AI-Powered Marketing</h4>
+                    <ul>
+                        <li>Automated campaign optimization</li>
+                        <li>Personalized content creation</li>
+                        <li>Predictive analytics for customer behavior</li>
+                    </ul>
+                </div>
+                
+                <div class="column">
+                    <h4>2. Video & Interactive Content</h4>
+                    <ul>
+                        <li>Short-form video dominance (TikTok, Reels)</li>
+                        <li>Live streaming for brand engagement</li>
+                        <li>Interactive content experiences</li>
+                    </ul>
+                </div>
+                
+                <div class="column">
+                    <h4>3. Local & Community Marketing</h4>
+                    <ul>
+                        <li>Hyper-local targeting strategies</li>
+                        <li>Community-driven brand building</li>
+                        <li>Partnership-based marketing approaches</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3>Technologies You'll Work With:</h3>
+            <ul>
+                <li><strong>Marketing Automation Platforms</strong> for streamlined campaign management</li>
+                <li><strong>Social Media Management Tools</strong> for multi-platform coordination</li>
+                <li><strong>Analytics Dashboards</strong> for data-driven decision making</li>
+                <li><strong>Content Creation Software</strong> for professional-quality materials</li>
+                <li><strong>Customer Relationship Management (CRM)</strong> systems for client management</li>
+            </ul>
+
+            <h3>Why This Experience Matters:</h3>
+            <p>Unlike classroom learning, your internship experience will put you at the forefront of these trends, working with real tools and real budgets to achieve measurable results for actual businesses.</p>
+            
+            <div class="nav-controls">
+                <button class="nav-btn prev-btn">Previous</button>
+                <button class="nav-btn next-btn">Next</button>
+            </div>
+        </div>
+        
+        <!-- Page 6: Apply Now / Contact -->
+        <div id="contact" class="page">
+            <h2>Ready to Launch Your Digital Marketing Career?</h2>
+            
+            <div class="cta">
+                <h2>Apply for Digital Futures Internship!</h2>
+                <p>Limited positions available with our partner organizations</p>
+                <p>Fully funded initial internship period</p>
+            </div>
+            
+            <div class="quote">
+                "The starting point of all achievement is desire." - Napoleon Hill
+            </div>
+            
+            <h3>Application Process:</h3>
+            <ul>
+                <li><strong>Submit Application:</strong> Complete our interest form</li>
+                <li><strong>Skills Assessment:</strong> Brief evaluation of your interests and strengths</li>
+                <li><strong>Partner Matching:</strong> We connect you with organizations seeking your specialization</li>
+                <li><strong>Training Begins:</strong> Start your professional development journey</li>
+                <li><strong>Internship Placement:</strong> Begin real-world experience with your matched partner</li>
+            </ul>
+            
+            <h3>Program Features:</h3>
+            <div class="benefits-list">
+                <div class="benefit-card">
+                    <div class="emoji">🎓</div>
+                    <p>Professional training & certification</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="emoji">🤝</div>
+                    <p>Direct partner organization placement</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="emoji">💰</div>
+                    <p>Funded initial period</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="emoji">📊</div>
+                    <p>Real results portfolio</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="emoji">🌟</div>
+                    <p>Potential for continued employment</p>
+                </div>
+            </div>
+            
+            <h3>Contact Us!</h3>
+            <div class="columns">
+                <div class="column">
+                    <ul>
+                        <li>📞 (707) 204-3160</li>
+                        <li>📧 javier@clubstride.org</li>
+                        <li>📱 @clubstride</li>
+                        <li>🌐 www.clubstride.org</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <p><strong>Questions?</strong> We're here to help you understand the program and find the right partner match.</p>
+                    <p><strong>Ready to start?</strong> Submit your application today and take the first step toward your digital marketing career.</p>
+                </div>
+            </div>
+            
+            <div class="nav-controls">
+                <button class="nav-btn prev-btn">Previous</button>
+                <button class="nav-btn next-btn" disabled>Next</button>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2025 Club Stride Inc. | Digital Futures Internship Program</p>
+            <p>www.clubstride.org | (707) 204-3160</p>
+        </footer>
+        
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+    </div>
+    
+    <script>
+        // Navigation functionality
+        const pages = document.querySelectorAll('.page');
+        const tabs = document.querySelectorAll('.nav-tab');
+        const prevBtns = document.querySelectorAll('.prev-btn');
+        const nextBtns = document.querySelectorAll('.next-btn');
+        const progressBar = document.getElementById('progressBar');
+        
+        let currentPageIndex = 0;
+        
+        // Update progress bar
+        function updateProgress() {
+            const progress = ((currentPageIndex + 1) / pages.length) * 100;
+            progressBar.style.width = progress + '%';
+        }
+        
+        // Initialize progress
+        updateProgress();
+        
+        // Navigate to a specific page
+        function navigateToPage(index) {
+            // Hide all pages and deactivate all tabs
+            pages.forEach(page => page.classList.remove('active'));
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show the selected page and activate its tab
+            pages[index].classList.add('active');
+            tabs[index].classList.add('active');
+            
+            // Update current page index
+            currentPageIndex = index;
+            
+            // Update progress
+            updateProgress();
+        }
+        
+        // Set up tab click handlers
+        tabs.forEach((tab, index) => {
+            tab.addEventListener('click', () => {
+                navigateToPage(index);
+            });
+        });
+        
+        // Set up prev/next button handlers
+        prevBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (currentPageIndex > 0) {
+                    navigateToPage(currentPageIndex - 1);
+                }
+            });
+        });
+        
+        nextBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (currentPageIndex < pages.length - 1) {
+                    navigateToPage(currentPageIndex + 1);
+                }
+            });
+        });
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' && currentPageIndex < pages.length - 1) {
+                navigateToPage(currentPageIndex + 1);
+            } else if (e.key === 'ArrowLeft' && currentPageIndex > 0) {
+                navigateToPage(currentPageIndex - 1);
+            }
+        });
+    </script>
+</body>
+</html>
