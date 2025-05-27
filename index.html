@@ -10,6 +10,14 @@
     -->
     <style>
         /* Base Styles */
+        * {
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
@@ -74,11 +82,18 @@
             letter-spacing: 2px;
         }
         
-        h2 {
-            color: #2980b9;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
-            margin-top: 40px;
+        h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        h4 {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 10px;
         }
         
         .page {
@@ -89,6 +104,12 @@
             margin-bottom: 30px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             flex-grow: 1;
+            animation: fadeIn 0.3s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         .page.active {
@@ -458,10 +479,10 @@
             <p>The Bay Area's tech-driven economy has created an <span class="highlight">unprecedented demand</span> for digital marketing professionals:</p>
             
             <ul>
-                <li><strong>500+ job openings</strong> right now in the Bay Area</li>
-                <li><strong>10% growth</strong> projected over the next decade (faster than most fields)</li>
-                <li><strong>Competitive salaries</strong> – Bay Area digital marketers earn 5-50% more than the national average</li>
-                <li>Entry-level positions start at <strong>$55-60K</strong>, with experienced marketers earning <strong>$80-90K+</strong></li>
+                <li><strong>500+ job openings</strong> available right now in the Bay Area</li>
+                <li><strong>10% annual growth</strong> projected over the next decade</li>
+                <li><strong>Premium salaries</strong> – Bay Area marketers earn 5-50% above national average</li>
+                <li><strong>$55-60K</strong> entry-level positions, with experienced professionals earning <strong>$80-90K+</strong></li>
             </ul>
             
             <div class="cta">
@@ -471,7 +492,7 @@
             </div>
             
             <div class="video-container">
-                <h3>Related Success Stories</h3>
+                <h3>Watch Our Program Overview</h3>
                 <iframe width="800" height="450" 
                     src="https://www.youtube.com/embed/pa2YQ59FGkU" 
                     frameborder="0" 
@@ -479,7 +500,7 @@
                     allowfullscreen 
                     style="max-width: 100%; border-radius: 10px;">
                 </iframe>
-                <p style="margin-top: 15px; color: #7f8c8d;">Learn more about the Digital Futures Internship Program</p>
+                <p style="margin-top: 15px; color: #7f8c8d;">Discover how the Digital Futures Internship can transform your career</p>
             </div>
 
             <h3>How It Works:</h3>
@@ -620,12 +641,12 @@
                 </div>
             </div>
             
-            <h3>Training Delivery Method:</h3>
+            <h3>Training Methodology</h3>
             <ul>
                 <li><strong>Live Instructor-Led Sessions:</strong> Interactive training with industry professionals</li>
-                <li><strong>E-Learning Platform:</strong> Self-paced modules for ongoing skill development</li>
+                <li><strong>E-Learning Platform:</strong> Self-paced modules for continuous skill development</li>
                 <li><strong>Hands-On Projects:</strong> Real work with partner organizations</li>
-                <li><strong>Mentorship:</strong> Guidance from experienced marketing professionals</li>
+                <li><strong>Professional Mentorship:</strong> One-on-one guidance from experienced marketing professionals</li>
             </ul>
             
             <h3>What This Program Creates:</h3>
@@ -782,12 +803,12 @@
                 </div>
             </div>
             
-            <h3>Success Stories:</h3>
+            <h3>Alumni Success Stories</h3>
             <ul>
-                <li>Alumni have launched agencies with 6-figure annual revenues within 2 years</li>
-                <li>Former interns now serve as consultants to Fortune 500 companies</li>
-                <li>Several participants have created successful online courses and coaching programs</li>
-                <li>Graduates have built e-commerce brands using their digital marketing expertise</li>
+                <li>Multiple alumni have launched agencies generating 6-figure annual revenues within 24 months</li>
+                <li>Former interns now provide consulting services to Fortune 500 companies</li>
+                <li>Several participants have developed successful online courses and coaching programs</li>
+                <li>Graduates have built thriving e-commerce brands leveraging their digital marketing expertise</li>
                 <li>Many have achieved location independence through remote marketing businesses</li>
             </ul>
             
@@ -872,8 +893,7 @@
                 <!-- Replace [INSERT-FLYER-1-URL] with your actual flyer image URL or path -->
                 <img src="Intern Flyer.png" alt="Digital Futures Overview Flyer">
                 <p>Comprehensive information about the internship program, requirements, and benefits</p>
-            </div>
-            
+            </div>        
             <div class="nav-controls">
                 <button class="nav-btn prev-btn">Previous</button>
                 <button class="nav-btn next-btn">Next</button>
@@ -885,9 +905,9 @@
             <h2>Ready to Launch Your Digital Marketing Career?</h2>
             
             <div class="cta">
-                <h2>Apply for Digital Futures Internship!</h2>
-                <p>Limited positions available with our partner organizations</p>
-                <p>Professional training and real-world experience await!</p>
+                <h2>Join the Digital Futures Internship Program</h2>
+                <p>Transform your passion for digital marketing into a thriving career</p>
+                <p>Limited positions available – Apply today!</p>
             </div>
             
             <div class="quote">
@@ -903,43 +923,45 @@
                 <li><strong>Internship Placement:</strong> Begin real-world experience with your matched partner</li>
             </ul>
             
-            <h3>Program Features:</h3>
+            <h3>Key Program Benefits</h3>
             <div class="benefits-list">
                 <div class="benefit-card">
                     <div class="emoji">🎓</div>
-                    <p>Professional training & certification</p>
+                    <p>Professional Training & OMCA Certification</p>
                 </div>
                 <div class="benefit-card">
                     <div class="emoji">🤝</div>
-                    <p>Direct partner organization placement</p>
+                    <p>Direct Partner Placement</p>
                 </div>
                 <div class="benefit-card">
                     <div class="emoji">💡</div>
-                    <p>Entrepreneurship support</p>
+                    <p>Entrepreneurship Support</p>
                 </div>
                 <div class="benefit-card">
                     <div class="emoji">📊</div>
-                    <p>Real results portfolio</p>
+                    <p>Portfolio Development</p>
                 </div>
                 <div class="benefit-card">
                     <div class="emoji">🌟</div>
-                    <p>Potential for continued employment</p>
+                    <p>Career Advancement</p>
                 </div>
             </div>
             
-            <h3>Contact Us!</h3>
+            <h3>Get in Touch</h3>
             <div class="columns">
                 <div class="column">
+                    <h4>Contact Information</h4>
                     <ul>
-                        <li>📞 (707) 204-3160</li>
-                        <li>📧 javier@clubstride.org</li>
-                        <li>📱 @clubstride</li>
-                        <li>🌐 www.clubstride.org</li>
+                        <li>📞 Phone: (707) 204-3160</li>
+                        <li>📧 Email: javier@clubstride.org</li>
+                        <li>📱 Social: @clubstride</li>
+                        <li>🌐 Website: www.clubstride.org</li>
                     </ul>
                 </div>
                 <div class="column">
-                    <p><strong>Questions?</strong> We're here to help you understand the program and find the right partner match.</p>
-                    <p><strong>Ready to start?</strong> Submit your application today and take the first step toward your digital marketing career.</p>
+                    <h4>Next Steps</h4>
+                    <p><strong>Have questions?</strong> Our team is ready to help you understand the program and find the perfect partner match for your career goals.</p>
+                    <p><strong>Ready to apply?</strong> Submit your application today and take the first step toward your digital marketing career.</p>
                 </div>
             </div>
             
@@ -1001,6 +1023,9 @@
             
             // Update progress
             updateProgress();
+            
+            // Scroll to top of page
+            window.scrollTo(0, 0);
         }
         
         // Set up tab click handlers
