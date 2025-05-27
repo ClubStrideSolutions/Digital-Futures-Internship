@@ -5,12 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Futures Internship Program</title>
     <!-- 
-    To add your images:
-    1. Search for [INSERT-FLYER-1-URL] and replace with your first flyer image path
-    2. Search for [INSERT-FLYER-2-URL] and replace with your second flyer image path  
-    3. Search for [INSERT-QR-CODE-URL] and replace with your QR code image path
-    
-    Example: Replace [INSERT-FLYER-1-URL] with "images/flyer1.jpg" or a full URL
+    YouTube video has been embedded in the Introduction page.
+    To change the video, search for "pa2YQ59FGkU" and replace with your new YouTube video ID.
     -->
     <style>
         /* Base Styles */
@@ -293,6 +289,77 @@
             background: #f8f9fa;
         }
         
+        .flyer-container.small img {
+            max-width: 400px;
+            min-height: 200px;
+        }
+        
+        .flyer-container.small img {
+            max-width: 400px;
+            min-height: 200px;
+        }
+        
+        .video-container {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .video-container h3 {
+            color: #2980b9;
+            margin-bottom: 20px;
+        }
+        
+        .video-placeholder {
+            width: 100%;
+            max-width: 800px;
+            height: 450px;
+            background: #000;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .video-placeholder::before {
+            content: "▶";
+            font-size: 60px;
+            color: white;
+            background: rgba(255, 0, 0, 0.8);
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .video-placeholder:hover::before {
+            background: rgba(255, 0, 0, 1);
+        }
+        
+        .video-placeholder p {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 0;
+            font-size: 14px;
+        }
+        
         .qr-container {
             text-align: center;
             margin: 30px 0;
@@ -319,6 +386,12 @@
             margin: 0 auto;
         }
         
+        .video-container iframe {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
         @media (max-width: 768px) {
             .column {
                 flex: 100%;
@@ -337,9 +410,22 @@
                 min-height: 200px;
             }
             
+            .flyer-container.small img {
+                max-width: 300px;
+                min-height: 150px;
+            }
+            
             .qr-container img {
                 width: 200px;
                 height: 200px;
+            }
+            
+            .video-placeholder {
+                height: 250px;
+            }
+            
+            .video-container iframe {
+                height: 250px;
             }
         }
     </style>
@@ -359,7 +445,7 @@
             <button class="nav-tab" data-page="industries">Industry Partners</button>
             <button class="nav-tab" data-page="entrepreneurship">Entrepreneurship</button>
             <button class="nav-tab" data-page="trends">Future Trends</button>
-            <button class="nav-tab" data-page="apply">Apply Now & Resources</button>
+            <button class="nav-tab" data-page="apply">Apply Now</button>
         </nav>
         
         <!-- Page 1: Introduction -->
@@ -382,6 +468,18 @@
                 <h2>Digital Futures Internship Program</h2>
                 <p>Professional training through real-world placements with local partner organizations</p>
                 <p>Hands-on experience with <span class="highlight">cutting-edge technologies</span></p>
+            </div>
+            
+            <div class="video-container">
+                <h3>Watch Our Program Overview</h3>
+                <iframe width="800" height="450" 
+                    src="https://www.youtube.com/embed/pa2YQ59FGkU" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen 
+                    style="max-width: 100%; border-radius: 10px;">
+                </iframe>
+                <p style="margin-top: 15px; color: #7f8c8d;">Learn more about the Digital Futures Internship Program</p>
             </div>
 
             <h3>How It Works:</h3>
@@ -775,28 +873,6 @@
                 <img src="Intern Flyer.png" alt="Digital Futures Overview Flyer">
                 <p>Comprehensive information about the internship program, requirements, and benefits</p>
             </div>
-            
-            <!-- <div class="flyer-container">
-                <h4>Partnership Opportunities</h4>
-                <img src=""C:\Users\jbclu\OneDrive\Documents\Digital Futures\Black and White Modern Minimal Simple Illustration Block Party Flyer.png" alt="Partnership Opportunities Flyer">
-                <p>Information for organizations interested in hosting interns</p>
-            </div> -->
-            
-            <!-- <h3>Quick Access</h3>
-            <div class="qr-container">
-                <h4>Scan to Apply</h4>
-                <img src="[INSERT-QR-CODE-URL]" alt="QR Code for Application">
-                <p>Scan the QR code to access our online application and additional resources!</p>
-            </div> -->
-            
-            <!-- <h3>Additional Resources:</h3>
-            <ul>
-                <li>Download our complete program guide</li>
-                <li>Access sample training modules</li>
-                <li>View success stories and testimonials</li>
-                <li>Connect with program alumni</li>
-                <li>Explore partnership opportunities</li>
-            </ul> -->
             
             <div class="nav-controls">
                 <button class="nav-btn prev-btn">Previous</button>
