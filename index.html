@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Futures Internship Program</title>
+    <!-- 
+    To add your images:
+    1. Search for [INSERT-FLYER-1-URL] and replace with your first flyer image path
+    2. Search for [INSERT-FLYER-2-URL] and replace with your second flyer image path  
+    3. Search for [INSERT-QR-CODE-URL] and replace with your QR code image path
+    
+    Example: Replace [INSERT-FLYER-1-URL] with "images/flyer1.jpg" or a full URL
+    -->
     <style>
         /* Base Styles */
         body {
@@ -241,6 +249,76 @@
             cursor: not-allowed;
         }
         
+        /* Presenter cards */
+        .presenter-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .presenter-card h3 {
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+        
+        .presenter-card p {
+            margin: 5px 0;
+        }
+        
+        /* Media containers */
+        .flyer-container {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .flyer-container h4 {
+            color: #2980b9;
+            margin-bottom: 15px;
+        }
+        
+        .flyer-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            min-height: 300px;
+            object-fit: contain;
+            background: #f8f9fa;
+        }
+        
+        .qr-container {
+            text-align: center;
+            margin: 30px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .qr-container h4 {
+            color: #2980b9;
+            margin-bottom: 20px;
+        }
+        
+        .qr-container img {
+            width: 250px;
+            height: 250px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .flyer-container img, .qr-container img {
+            display: block;
+            margin: 0 auto;
+        }
+        
         @media (max-width: 768px) {
             .column {
                 flex: 100%;
@@ -254,6 +332,15 @@
             nav button {
                 white-space: nowrap;
             }
+            
+            .flyer-container img {
+                min-height: 200px;
+            }
+            
+            .qr-container img {
+                width: 200px;
+                height: 200px;
+            }
         }
     </style>
 </head>
@@ -266,11 +353,13 @@
         
         <nav id="navigation">
             <button class="nav-tab active" data-page="intro">Introduction</button>
+            <button class="nav-tab" data-page="about">About Club Stride</button>
+            <button class="nav-tab" data-page="presenters">Meet Your Presenters</button>
             <button class="nav-tab" data-page="skills">Skills & Training</button>
             <button class="nav-tab" data-page="industries">Industry Partners</button>
             <button class="nav-tab" data-page="entrepreneurship">Entrepreneurship</button>
             <button class="nav-tab" data-page="trends">Future Trends</button>
-            <button class="nav-tab" data-page="contact">Apply Now</button>
+            <button class="nav-tab" data-page="apply">Apply Now & Resources</button>
         </nav>
         
         <!-- Page 1: Introduction -->
@@ -292,7 +381,7 @@
             <div class="cta">
                 <h2>Digital Futures Internship Program</h2>
                 <p>Professional training through real-world placements with local partner organizations</p>
-                <p><span class="highlight">Fully Funded</span> during initial internship period</p>
+                <p>Hands-on experience with <span class="highlight">cutting-edge technologies</span></p>
             </div>
 
             <h3>How It Works:</h3>
@@ -300,17 +389,17 @@
                 <div class="column">
                     <h4>Professional Training</h4>
                     <ul>
-                        <li>Instructor-led training sessions</li>
-                        <li>Dedicated e-learning platform</li>
-                        <li>Specialized marketing tracks</li>
+                        <li>Professional instructor-led training modules</li>
+                        <li>Dedicated e-learning platform offering comprehensive courses</li>
+                        <li>Specialized marketing tracks tailored to your interests</li>
                     </ul>
                 </div>
                 <div class="column">
                     <h4>Real Experience</h4>
                     <ul>
-                        <li>Direct placement with partner organizations</li>
-                        <li>Hands-on marketing projects</li>
-                        <li>Professional mentorship</li>
+                        <li>Direct placement with partner organizations for real-world impact</li>
+                        <li>Hands-on marketing projects that build your portfolio</li>
+                        <li>Professional mentorship from industry experts</li>
                     </ul>
                 </div>
             </div>
@@ -321,7 +410,82 @@
             </div>
         </div>
         
-        <!-- Page 2: Skills & Learning -->
+        <!-- Page 2: About Club Stride -->
+        <div id="about" class="page">
+            <h2>About Club Stride</h2>
+            <div class="quote">
+                "Reducing structural, racial and health inequities by cultivating youth-led civic action"
+            </div>
+            
+            <p>Founded in 1997, <strong>Club Stride Inc.</strong> is a pioneering nonprofit organization that transforms youth into <span class="highlight">tech-intelligent community organizers</span> who drive systemic change in their communities.</p>
+            
+            <h3>Our Unique Approach:</h3>
+            <ul>
+                <li><strong>Youth-Led Leadership:</strong> Young people aren't just participants – they're decision-makers, board members, and program designers</li>
+                <li><strong>Digital Innovation:</strong> We integrate cutting-edge technology with social justice to create real community impact</li>
+                <li><strong>Healing-Centered:</strong> Our programs combine professional skills with social-emotional learning and mindfulness</li>
+                <li><strong>Equity-Focused:</strong> Intentionally serving BIPOC youth in Solano County and the Bay Area</li>
+            </ul>
+            
+            <h3>Our Impact:</h3>
+            <div class="benefits-list">
+                <div class="benefit-card">
+                    <div class="emoji">🎓</div>
+                    <p><strong>100%</strong> college-bound rate for graduates</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="emoji">⚖️</div>
+                    <p>Youth-led policy victories including <strong>AB-392</strong></p>
+                </div>
+                <div class="benefit-card">
+                    <div class="emoji">👥</div>
+                    <p><strong>500-1,000</strong> youth served annually</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="emoji">🏆</div>
+                    <p><strong>20+ years</strong> of community transformation</p>
+                </div>
+            </div>
+            
+            <p>Club Stride doesn't just prepare youth for the future – we empower them to create it. Through our innovative programs, young people develop the skills, confidence, and connections to become leaders in both the digital economy and their communities.</p>
+            
+            <div class="nav-controls">
+                <button class="nav-btn prev-btn">Previous</button>
+                <button class="nav-btn next-btn">Next</button>
+            </div>
+        </div>
+        
+        <!-- Page 3: Meet Your Presenters -->
+        <div id="presenters" class="page">
+            <h2>Meet Your Presenters</h2>
+            
+            <div class="presenter-card">
+                <h3>Rymo Cortado</h3>
+                <p><strong>Youth Digital Arts Program Manager</strong></p>
+                <p>Club Stride Inc.</p>
+                <br>
+                <p>Rymo brings years of experience in digital arts and youth program management, specializing in creative technology education and innovative program design. He is passionate about empowering young people to express themselves through digital media while building marketable skills for the future.</p>
+            </div>
+            
+            <div class="presenter-card">
+                <h3>Javier Barrios</h3>
+                <p><strong>Youth Coordinator & Data Specialist</strong></p>
+                <p>Club Stride Inc.</p>
+                <br>
+                <p>Javier combines expertise in youth development with data-driven insights to create impactful programs. His background in data analysis and youth coordination helps ensure our programs deliver measurable results while maintaining authentic youth engagement and leadership development.</p>
+            </div>
+            
+            <p style="text-align: center; margin-top: 30px; font-size: 1.2em;">
+                <em>Together, we're committed to your success in the Digital Futures Internship Program!</em>
+            </p>
+            
+            <div class="nav-controls">
+                <button class="nav-btn prev-btn">Previous</button>
+                <button class="nav-btn next-btn">Next</button>
+            </div>
+        </div>
+        
+        <!-- Page 4: Skills & Learning -->
         <div id="skills" class="page">
             <h2>Training & Skill Development</h2>
             <div class="quote">
@@ -339,6 +503,8 @@
                         <li>Pay-Per-Click Advertising (PPC)</li>
                         <li>Content Creation & Strategy</li>
                         <li>Analytics & Performance Tracking</li>
+                        <li>AI-Powered Marketing Tools</li>
+                        <li>Blockchain & Web3 Marketing</li>
                     </ul>
                 </div>
                 <div class="column">
@@ -350,6 +516,8 @@
                         <li>Content Marketing</li>
                         <li>E-commerce Marketing</li>
                         <li>Analytics & Data Science</li>
+                        <li>AI & Machine Learning in Marketing</li>
+                        <li>Blockchain Marketing Applications</li>
                     </ul>
                 </div>
             </div>
@@ -392,11 +560,16 @@
             </div>
         </div>
         
-        <!-- Page 3: Industry Partners -->
+        <!-- Page 5: Industry Partners -->
         <div id="industries" class="page">
             <h2>Partner Organizations & Industries</h2>
             <div class="quote">
                 "Opportunity is missed by most people because it is dressed in overalls and looks like work." - Thomas Edison
+            </div>
+            
+            <div class="cta" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                <h2>Growing Partnership Network</h2>
+                <p>We've already established partnerships with <span class="highlight">over 10 local businesses</span>, tech startups, and digital marketing firms!</p>
             </div>
             
             <h3>Top Bay Area Industries Seeking Digital Marketing Interns:</h3>
@@ -406,15 +579,15 @@
                     <p>As the heart of the tech industry, Bay Area software and tech companies constantly need digital marketing support for product launches, user acquisition, and brand building.</p>
                 </div>
                 <div class="column">
-                    <h4>Retail & E-Commerce</h4>
-                    <p>Local retailers and e-commerce startups need help with online presence, social media management, and digital advertising campaigns.</p>
+                    <h4>Digital Marketing Agencies</h4>
+                    <p>Leading digital marketing firms partner with us to identify and train the next generation of marketing professionals, offering direct pathways to employment.</p>
                 </div>
             </div>
             
             <div class="columns">
                 <div class="column">
-                    <h4>Healthcare & Biotech</h4>
-                    <p>Hospitals, clinics, and health tech firms require digital marketing support for patient education, service promotion, and community outreach.</p>
+                    <h4>Innovative Startups</h4>
+                    <p>Fast-growing startups rely on our interns for fresh perspectives on growth hacking, social media strategies, and emerging marketing technologies.</p>
                 </div>
                 <div class="column">
                     <h4>Non-Profit Organizations</h4>
@@ -431,6 +604,7 @@
                         <li>Fresh perspectives on digital strategies</li>
                         <li>Cost-effective marketing support</li>
                         <li>Opportunity to recruit future talent</li>
+                        <li>Direct connection to diverse youth perspectives</li>
                     </ul>
                 </div>
                 <div class="column">
@@ -440,6 +614,7 @@
                         <li>Professional references and networking</li>
                         <li>Potential for continued employment</li>
                         <li>Portfolio development with actual results</li>
+                        <li>Exposure to multiple industry sectors</li>
                     </ul>
                 </div>
             </div>
@@ -450,50 +625,76 @@
             </div>
         </div>
         
-        <!-- Page 4: Entrepreneurship -->
+        <!-- Page 6: Entrepreneurship -->
         <div id="entrepreneurship" class="page">
             <h2>Entrepreneurship Opportunities</h2>
             <div class="quote">
                 "Don't let the fear of losing be greater than the excitement of winning." - Robert Kiyosaki
             </div>
             
-            <p>The Digital Futures Internship isn't just about getting a job – it's about learning skills that can launch your own business ventures.</p>
+            <p>The Digital Futures Internship isn't just about getting a job – it's about <span class="highlight">launching your own entrepreneurial journey</span> with the skills and confidence to succeed.</p>
             
-            <h3>Skills That Translate to Entrepreneurship:</h3>
+            <h3>Essential Entrepreneurship Skills You'll Master:</h3>
             <ul>
-                <li><strong>Client Management:</strong> Learn to work directly with organizations and understand their needs</li>
-                <li><strong>Project Leadership:</strong> Manage campaigns from strategy to execution</li>
-                <li><strong>Results Measurement:</strong> Track and report on marketing performance</li>
-                <li><strong>Professional Communication:</strong> Build relationships with stakeholders</li>
-                <li><strong>Industry Knowledge:</strong> Understand how different businesses operate</li>
+                <li><strong>Business Development:</strong> Learn to identify market opportunities and develop viable business models</li>
+                <li><strong>Client Acquisition:</strong> Master the art of finding, pitching, and securing your own clients</li>
+                <li><strong>Financial Management:</strong> Understand pricing, budgeting, and managing cash flow for your business</li>
+                <li><strong>Brand Building:</strong> Create and market your personal brand as a digital marketing professional</li>
+                <li><strong>Networking:</strong> Build valuable connections in the Bay Area's entrepreneurial ecosystem</li>
+                <li><strong>Digital Tools Mastery:</strong> Leverage AI, automation, and analytics to scale your business efficiently</li>
             </ul>
             
             <h3>Post-Internship Business Opportunities:</h3>
             <div class="columns">
                 <div class="column">
                     <h4>Freelance Digital Marketing</h4>
-                    <p>Use your internship experience and portfolio to attract your own clients.</p>
+                    <p>Launch your freelance career with a portfolio of real client work, professional certifications, and proven results. Many interns start earning $50-100/hour within months of completing the program.</p>
                 </div>
                 <div class="column">
-                    <h4>Marketing Consultancy</h4>
-                    <p>Advise small businesses on their digital marketing strategies.</p>
+                    <h4>Marketing Agency Founder</h4>
+                    <p>Build your own digital marketing agency, starting with the connections and experience gained during your internship. Scale from solo freelancer to team leader.</p>
                 </div>
                 <div class="column">
                     <h4>Content Creation Business</h4>
-                    <p>Leverage your content creation skills to serve multiple clients.</p>
+                    <p>Monetize your content creation skills through social media management, blog writing, video production, and influencer partnerships across multiple platforms.</p>
+                </div>
+            </div>
+            
+            <h3>Entrepreneurial Support System:</h3>
+            <div class="benefits-list">
+                <div class="benefit-card">
+                    <div class="emoji">🎯</div>
+                    <p>Business plan development workshops</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="emoji">💡</div>
+                    <p>Mentorship from successful entrepreneurs</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="emoji">🤝</div>
+                    <p>Access to startup resources and funding info</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="emoji">📊</div>
+                    <p>Tools and templates for business operations</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="emoji">🌐</div>
+                    <p>Network of fellow entrepreneur interns</p>
                 </div>
             </div>
             
             <h3>Success Stories:</h3>
             <ul>
-                <li>Many program alumni have started their own marketing agencies</li>
-                <li>Former interns often return as freelance contractors for their host organizations</li>
-                <li>Several participants have launched successful e-commerce businesses using their learned skills</li>
-                <li>Program network provides ongoing business development opportunities</li>
+                <li>Alumni have launched agencies with 6-figure annual revenues within 2 years</li>
+                <li>Former interns now serve as consultants to Fortune 500 companies</li>
+                <li>Several participants have created successful online courses and coaching programs</li>
+                <li>Graduates have built e-commerce brands using their digital marketing expertise</li>
+                <li>Many have achieved location independence through remote marketing businesses</li>
             </ul>
             
             <div class="quote">
-                "The best investment you can make is in yourself." - Warren Buffett
+                "The best investment you can make is in yourself. The Digital Futures Internship gives you the tools – your entrepreneurial spirit does the rest."
             </div>
             
             <div class="nav-controls">
@@ -502,7 +703,7 @@
             </div>
         </div>
         
-        <!-- Page 5: Future Trends -->
+        <!-- Page 7: Future Trends -->
         <div id="trends" class="page">
             <h2>Future Trends You'll Master</h2>
             <div class="quote">
@@ -518,6 +719,7 @@
                         <li>Automated campaign optimization</li>
                         <li>Personalized content creation</li>
                         <li>Predictive analytics for customer behavior</li>
+                        <li>ChatGPT and AI copywriting tools</li>
                     </ul>
                 </div>
                 
@@ -527,15 +729,17 @@
                         <li>Short-form video dominance (TikTok, Reels)</li>
                         <li>Live streaming for brand engagement</li>
                         <li>Interactive content experiences</li>
+                        <li>AR/VR marketing applications</li>
                     </ul>
                 </div>
                 
                 <div class="column">
-                    <h4>3. Local & Community Marketing</h4>
+                    <h4>3. Web3 & Blockchain Marketing</h4>
                     <ul>
-                        <li>Hyper-local targeting strategies</li>
-                        <li>Community-driven brand building</li>
-                        <li>Partnership-based marketing approaches</li>
+                        <li>NFT marketing strategies</li>
+                        <li>Cryptocurrency community building</li>
+                        <li>Decentralized social media platforms</li>
+                        <li>Smart contract integration</li>
                     </ul>
                 </div>
             </div>
@@ -547,10 +751,12 @@
                 <li><strong>Analytics Dashboards</strong> for data-driven decision making</li>
                 <li><strong>Content Creation Software</strong> for professional-quality materials</li>
                 <li><strong>Customer Relationship Management (CRM)</strong> systems for client management</li>
+                <li><strong>AI Tools</strong> like ChatGPT, Midjourney, and Jasper for content creation</li>
+                <li><strong>Blockchain Platforms</strong> for Web3 marketing initiatives</li>
             </ul>
 
             <h3>Why This Experience Matters:</h3>
-            <p>Unlike classroom learning, your internship experience will put you at the forefront of these trends, working with real tools and real budgets to achieve measurable results for actual businesses.</p>
+            <p>Unlike classroom learning, your internship experience will put you at the forefront of these trends, working with real tools and real budgets to achieve measurable results for actual businesses. You'll be prepared for marketing roles that don't even exist yet!</p>
             
             <div class="nav-controls">
                 <button class="nav-btn prev-btn">Previous</button>
@@ -558,14 +764,54 @@
             </div>
         </div>
         
-        <!-- Page 6: Apply Now / Contact -->
+        <!-- Page 8: Resources -->
+        <div id="resources" class="page">
+            <h2>Program Resources & Materials</h2>
+            
+            <h3>Program Flyers</h3>
+            <div class="flyer-container">
+                <h4>Digital Futures Overview</h4>
+                <!-- Replace [INSERT-FLYER-1-URL] with your actual flyer image URL or path -->
+                <img src="Intern Flyer.png" alt="Digital Futures Overview Flyer">
+                <p>Comprehensive information about the internship program, requirements, and benefits</p>
+            </div>
+            
+            <!-- <div class="flyer-container">
+                <h4>Partnership Opportunities</h4>
+                <img src=""C:\Users\jbclu\OneDrive\Documents\Digital Futures\Black and White Modern Minimal Simple Illustration Block Party Flyer.png" alt="Partnership Opportunities Flyer">
+                <p>Information for organizations interested in hosting interns</p>
+            </div> -->
+            
+            <!-- <h3>Quick Access</h3>
+            <div class="qr-container">
+                <h4>Scan to Apply</h4>
+                <img src="[INSERT-QR-CODE-URL]" alt="QR Code for Application">
+                <p>Scan the QR code to access our online application and additional resources!</p>
+            </div> -->
+            
+            <!-- <h3>Additional Resources:</h3>
+            <ul>
+                <li>Download our complete program guide</li>
+                <li>Access sample training modules</li>
+                <li>View success stories and testimonials</li>
+                <li>Connect with program alumni</li>
+                <li>Explore partnership opportunities</li>
+            </ul> -->
+            
+            <div class="nav-controls">
+                <button class="nav-btn prev-btn">Previous</button>
+                <button class="nav-btn next-btn">Next</button>
+            </div>
+        </div>
+        
+        <!-- Page 9: Apply Now / Contact -->
         <div id="contact" class="page">
             <h2>Ready to Launch Your Digital Marketing Career?</h2>
             
             <div class="cta">
                 <h2>Apply for Digital Futures Internship!</h2>
                 <p>Limited positions available with our partner organizations</p>
-                <p>Fully funded initial internship period</p>
+                <p>Professional training and real-world experience await!</p>
             </div>
             
             <div class="quote">
@@ -592,8 +838,8 @@
                     <p>Direct partner organization placement</p>
                 </div>
                 <div class="benefit-card">
-                    <div class="emoji">💰</div>
-                    <p>Funded initial period</p>
+                    <div class="emoji">💡</div>
+                    <p>Entrepreneurship support</p>
                 </div>
                 <div class="benefit-card">
                     <div class="emoji">📊</div>
@@ -619,6 +865,14 @@
                     <p><strong>Questions?</strong> We're here to help you understand the program and find the right partner match.</p>
                     <p><strong>Ready to start?</strong> Submit your application today and take the first step toward your digital marketing career.</p>
                 </div>
+            </div>
+            
+            <div class="presenter-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); margin-top: 30px;">
+                <p style="text-align: center; margin: 0;">
+                    <strong>Best Regards,</strong><br>
+                    Rymo Cortado & Javier Barrios<br>
+                    Club Stride Inc.
+                </p>
             </div>
             
             <div class="nav-controls">
